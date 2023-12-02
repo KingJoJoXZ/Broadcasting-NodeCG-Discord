@@ -1,0 +1,25 @@
+body {
+	font-family: Staatliches, sans-serif;
+	background: red;
+}
+
+#lowerthird {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+#name {
+    font-size: 24px;
+    margin: 0;
+}
+
+#title {
+    font-size: 18px;
+    margin: 0;
+}
