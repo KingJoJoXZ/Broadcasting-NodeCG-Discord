@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Team 2 Name Controls</title>
+</head>
+<body>
+<form id="update-team-names2">
+	<label for="team-names2">Team 2 Name</label>
+	<input id="team-names2">
+	<button type="submit">Update</button>
+	<button class="set-text" data-text="">Blank</button>
+</form>
+<script>
+	const textReplicantn2 = nodecg.Replicant('textReplicantn2');
+	const textBoxn2 = document.getElementById('team-names2');
+	const textFormn2 = document.getElementById('update-team-names2');
+	const buttonsn2 = document.getElementsByClassName('set-text');
+
+	textReplicantn2.on('change', value => {
+		textBoxn2.value = value;
+	});
+	textFormn2.addEventListener('submit', en2 => {
+		// stop the form from actually submitting!
+		en2.preventDefault();
+		textReplicantn2.value = textBoxn2.value;
+	});
+	Array.from(buttonsn2).forEach(button => {
+		button.addEventListener('click', en2 => {
+			textReplicantn2.value = en2.target.dataset.text;
+		})
+	})
+</script>
+</body>
+</html>

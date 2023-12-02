@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Text Overlay Controls</title>
+</head>
+<body>
+<form id="update-overlay">
+	<label for="overlay-text">Overlay Text</label>
+	<input id="overlay-text">
+	<button type="submit">Update</button>
+	<button class="set-text" data-text="Get Ready Dudes">Party time?</button>
+	<button class="set-text" data-text="Time for a shell of a time">Welcome turtles</button>
+	<button class="set-text" data-text="Hold on to your shells">Short message</button>
+	<button class="set-text" data-text="Have a Shelltastic time">Cowabunga</button>
+	<button class="set-text" data-text="">Blank</button>
+</form>
+<script>
+	const textReplicant = nodecg.Replicant('textReplicant');
+	const textBox = document.getElementById('overlay-text');
+	const textForm = document.getElementById('update-overlay');
+	const buttons = document.getElementsByClassName('set-text');
+
+	textReplicant.on('change', value => {
+		textBox.value = value;
+	});
+	textForm.addEventListener('submit', e => {
+		// stop the form from actually submitting!
+		e.preventDefault();
+		textReplicant.value = textBox.value;
+	});
+	Array.from(buttons).forEach(button => {
+		button.addEventListener('click', e => {
+			textReplicant.value = e.target.dataset.text;
+		})
+	})
+</script>
+</body>
+</html>
